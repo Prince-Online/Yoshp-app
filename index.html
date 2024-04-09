@@ -1,0 +1,394 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://kit.fontawesome.com/8aa17a250d.js" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap" rel="stylesheet">
+<style>
+    * {
+    padding: 0;
+    margin: 0;
+    background: #F4F4F4;
+    overflow-x: hidden;
+    font-family: 'Roboto';
+}
+.header {
+    margin-left: 25px;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+}
+.menu {
+    background: #000;
+    height: 32px;
+    width: 32px;
+    border-radius: 125px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    cursor: pointer;
+}
+.menu-icon {
+    width: 20px;
+    background: transparent;
+}
+.head-text {
+    font-size: 23.3px;
+    font-family: "Tilt Neon", sans-serif;
+}
+.head-text::before {
+    content: '';
+    background: yellow;
+    width: 20px;
+}
+.bell-icon {
+    width: 30px;
+    cursor: pointer;
+}
+.slider {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #f0f0f0;
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+.slider-content {
+    padding: 20px;
+    height: 95%;
+    background: #FFF;
+}
+#closeSlider {
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+#closeSlider:hover {
+    background-color: #cc0000;
+}
+.search-box {
+    margin-left: 42px;
+    margin-top: 16px;
+    width: 260px;
+    padding: 8px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    background: #FFF;
+}
+.search-btn {
+    padding: 8px;
+    border-radius: 25px;
+    border: none;
+    background: #9ceff7;
+    cursor: pointer;
+    margin-top: 25px;
+    margin-left: 10px;
+}
+.next-icon {
+    width: 16px;
+    background: transparent;
+}
+.search-results {
+    margin-top: 20px;
+}
+.search-results a {
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #333;
+}
+.search-results img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+@media only screen and (max-width: 600px) {
+    .bell-icon {
+        margin-left: 90px;
+    }
+    .head-text {
+        margin-left: 90px;
+    }
+    .close-icon {
+        width: 16px;
+        background: transparent;
+    }
+    #closeSlider {
+        border-radius: 25px;
+        height: 30px;
+        width: 30px;
+        justify-content: center;
+    }
+    .search-results {
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        margin-left: 50px;
+    }
+    .search-results .search-result-item {
+        margin-right: 10px;
+        text-align: center;
+    }
+    .search-results .search-result-item img {
+        display: block;
+        margin: 0 auto;
+    }
+    .search-results .search-result-item p {
+        margin-top: 5px;
+        font-size: 14px;
+    }
+    .user-text{
+        margin-left: 50px;
+        margin-top: 10px;
+    }
+    .icon-img{
+        width: 32px;
+        background: #FFF;
+    }
+    .icon-btn{
+        padding: 12px;
+        margin-left: 17px;
+        background: #FFF;
+        border-radius: 25px;
+        border: none;
+    }
+    .icons{
+        margin-left: 40px;
+        margin-top: 10px;
+    }
+    .ad-img{
+        margin-left: 50px;
+        margin-top: 28px;
+        width: 286px;
+        height: 94px;
+        border-radius: 8px;
+    }
+    .ad,.updates{
+        overflow: hidden;
+    }
+    .updates-img{
+        margin-left: 81px;
+        margin-top: 10px;
+        width: 218px;
+        height: 151px;
+        border-radius: 8px;
+    }
+    .hidden{
+        display: none;
+    }
+    .dot {
+    height: 18px;
+    width: 18px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+  }
+
+  .dot.active {
+    background-color: lightblue;
+  }
+  .dots-main{
+    text-align: center;
+    margin-top: 10px;
+  }
+  .footer{
+    background: #FFF;
+    width: 303px;
+    height: 38px;
+    margin-left: 40px;
+    position: fixed;
+    margin-top: 22px;
+    border-radius: 25px;
+    align-items: center;
+    display: inline-flex;
+  }
+  .footer-links{
+    margin-left: 30px;
+  }
+  .footer-btn{
+    padding: 6px;
+    font-size: 21px;
+    background: #FFF;
+    border: none;
+  }
+  .footer-btn.clicked {
+    color: purple;
+  }
+  .footer-btn:hover:not(.clicked) {
+    color: black; 
+  }
+}
+</style>
+<div class="header">
+    <div class="menu" id="sliderIcon">
+        <img src="menu-icon.svg" class="menu-icon">
+    </div>
+    <div class="head">
+        <h4 class="head-text">YOSHP !</h4>
+    </div>
+    <div class="notify">
+        <img src="bell-icon.svg" class="bell-icon">
+    </div>
+</div>
+<div id="slider" class="slider">
+    <div class="slider-content">
+      <button id="closeSlider"><img src="close-icon.svg" class="close-icon"></button>
+      <p>This is the content of the slider.</p>
+    </div>
+</div>
+<div class="search">
+    <input type="text" class="search-box" id="searchBox">
+    <button class="search-btn"><img src="next-icon.svg" class="next-icon"></button>
+</div>
+<h3 class="user-text">User:</h3>
+<div class="search-results" id="searchResults"></div>
+<div class="social-links">
+    <h3 class="user-text">Our Social Links:</h3>
+    <div class="icons">
+        <a href="#"><button class="icon-btn"><img src="youtube-icon.svg" class="icon-img"></button></a>
+        <a href="#"><button class="icon-btn"><img src="facebook-icon.svg" class="icon-img"></button></a>
+        <a href="#"><button class="icon-btn"><img src="twitter-icon.svg" class="icon-img"></button></a>
+        <a href="#"><button class="icon-btn"><img src="instagram-icon.svg" class="icon-img"></button></a>
+    </div>
+</div>
+<div class="ad">
+    <a href="#"><img src="banner-ad.png" class="ad-img"></a>
+</div>
+<div class="updates">
+    <h3 class="user-text">Updates:</h3>
+    <div id="div1"><img src="updates-img.png" class="updates-img"></div>
+    <div id="div2" class="hidden"><img src="updates-img.png" class="updates-img"></div>
+    <div id="div3" class="hidden"><img src="updates-img.png" class="updates-img"></div>
+    <div class="dots-main">
+    <span class="dot active" onclick="showDiv(1)"></span>
+    <span class="dot" onclick="showDiv(2)"></span>
+    <span class="dot" onclick="showDiv(3)"></span>
+</div>
+</div>
+<div class="footer">
+    <a href="#" class="footer-links"><button class="footer-btn clicked"><i class="fa-solid fa-house"></i></button></a>
+    <a href="#" class="footer-links"><button class="footer-btn"><i class="fa-solid fa-bullhorn" style="transform: rotate(338deg);"></i></button></a>
+    <a href="#" class="footer-links"><button class="footer-btn"><i class="fa-solid fa-gamepad"></i></button></a>
+    <a href="#" class="footer-links"><button class="footer-btn"><i class="fa-solid fa-video"></i></button></a>
+</div>
+<script>
+        //Color Select
+       const buttons = document.querySelectorAll('.footer-btn');
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                buttons.forEach(btn => {
+                    btn.classList.remove('clicked');
+                });
+                button.classList.add('clicked');
+            });
+        });
+        //Color Over
+    function showDiv(divNumber) {
+    if (divNumber !== 1 && document.getElementById('div1').classList.contains('hidden')) {
+      document.getElementById('div1').classList.remove('hidden');
+    }
+    for (let i = 1; i <= 3; i++) {
+      document.getElementById('div' + i).classList.add('hidden');
+      document.getElementsByClassName('dot')[i - 1].classList.remove('active');
+    }
+    document.getElementById('div' + divNumber).classList.remove('hidden');
+    document.getElementsByClassName('dot')[divNumber - 1].classList.add('active');
+  }
+  // Another Part
+    document.addEventListener('DOMContentLoaded', function() {
+    const sliderIcon = document.getElementById('sliderIcon');
+    const slider = document.getElementById('slider');
+    const closeSliderBtn = document.getElementById('closeSlider');
+    const searchBox = document.getElementById('searchBox');
+    const searchResults = document.getElementById('searchResults');
+
+    sliderIcon.addEventListener('click', function() {
+        slider.style.left = '0';
+    });
+
+    closeSliderBtn.addEventListener('click', function() {
+        slider.style.left = '-250px';
+    });
+
+    // Initial search results data
+    let initialSearchResultsData = [
+        { name: 'Initial Result 1', image: 'https://via.placeholder.com/150', link: '#' },
+        { name: 'Initial Result 2', image: 'https://via.placeholder.com/150', link: '#' }
+    ];
+
+    // Function to shuffle search results data
+    function shuffleSearchResults() {
+        initialSearchResultsData = shuffleArray(initialSearchResultsData);
+        renderSearchResults(initialSearchResultsData);
+    }
+
+    // Function to shuffle an array
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    // Render initial search results
+    shuffleSearchResults();
+    
+    // Shuffle search results every 10 seconds (adjust the interval as needed)
+    setInterval(shuffleSearchResults, 10000);
+
+    searchBox.addEventListener('input', function() {
+        const query = this.value.trim().toLowerCase();
+        if (query.length > 0) {
+            const searchResultsData = [
+                { name: 'Result 1', image: 'https://via.placeholder.com/150', link: '#' },
+                { name: 'Result 2', image: 'https://via.placeholder.com/150', link: '#' },
+                { name: 'Result 3', image: 'https://via.placeholder.com/150', link: '#' }
+            ];
+
+            const filteredResults = searchResultsData.filter(result => result.name.toLowerCase().includes(query));
+
+            renderSearchResults(filteredResults);
+        } else {
+            renderSearchResults(initialSearchResultsData); // Display shuffled initial search results if query is empty
+        }
+    });
+
+    function renderSearchResults(results) {
+        searchResults.innerHTML = ''; // Clear existing search results
+        if (results.length > 0) {
+            results.forEach(result => {
+                const resultContainer = document.createElement('div');
+                resultContainer.classList.add('search-result-item'); // Add your class here
+
+                const resultImage = document.createElement('img');
+                resultImage.src = result.image;
+                resultImage.alt = result.name;
+
+                const resultLink = document.createElement('a');
+                resultLink.href = result.link;
+                resultLink.appendChild(resultImage);
+
+                const resultName = document.createElement('p');
+                resultName.textContent = result.name;
+
+                resultContainer.appendChild(resultLink);
+                resultContainer.appendChild(resultName);
+                searchResults.appendChild(resultContainer);
+            });
+        } else {
+            const noResultsMessage = document.createElement('p');
+            noResultsMessage.textContent = 'No results found.';
+            searchResults.appendChild(noResultsMessage);
+        }
+    }});
+</script>
