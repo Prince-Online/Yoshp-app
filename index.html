@@ -161,15 +161,17 @@
         border: none;
     }
     .icons{
-        margin-left: 10%;
-        margin-top: 10px;
+    position: absolute;
+    margin-left: 10%;
+    bottom: 494px;
     }
     .ad-img{
-        margin-left: 13%;
-        margin-top: 28px;
-        width: 286px;
-        height: 70px;
-        border-radius: 8px;
+    margin-left: 13%;
+    width: 286px;
+    position: absolute;
+    bottom: 399px;
+    height: 70px;
+    border-radius: 8px;
     }
     .ad,.updates{
         overflow: hidden;
@@ -178,6 +180,8 @@
     margin-left: 13%;
     margin-top: 10px;
     width: 283px;
+    position: absolute;
+    bottom: 250px;
     height: 107px;
     border-radius: 8px;
 }
@@ -199,13 +203,16 @@
   .dots-main{
     text-align: center;
     margin-top: 10px;
+    bottom: 211px;
+    left: 153px;
+    position: absolute;
   }
   .footer{
     background: #FFF;
     width: 303px;
     height: 38px;
     margin-left: 10%;
-    margin-top: 70px;
+    bottom: 112px;
     position: fixed;
     border-radius: 25px;
     align-items: center;
@@ -226,6 +233,95 @@
   .footer-btn:hover:not(.clicked) {
     color: black; 
   }
+  .slo{
+    background: transparent;
+    margin-top: 20px;
+  }
+  .controls{
+    background: transparent;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: block;
+    
+  }
+  @keyframes glow-text{
+    0%{ margin-left: -100px;}
+  }
+  .controls-btn,.controls-btn1,.controls-btn2,.controls-btn3,.controls-btn4{
+    margin-top: 10px;
+    padding: 8px;
+    width: 210px;
+    outline: none;
+    font-size: 20px;
+    border: none;
+    background: transparent;
+  }
+  .controls-btn{
+    animation: glow-text 1.7s ease-in;
+  }
+  .controls-btn1{
+    animation: glow-text 2.1s ease-in;
+  }
+  .controls-btn2{
+    animation: glow-text 2.7s ease-in;
+  }
+  .controls-btn3{
+    animation: glow-text 3.2s ease-in;
+  }
+  .controls-btn4{
+    animation: glow-text 3.9s ease-in;
+  }
+  .controls-img{
+    width: 24px;
+    background: transparent;
+  }
+  .message {
+    position: fixed;
+    left: 50%;
+    bottom: 170px;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 999;
+}
+
+.message.success {
+    background-color: #4caf50;
+}
+
+.message.error {
+    background-color: #f44336;
+}
+
+.message.show {
+    opacity: 1;
+}
+
+/* Animation */
+@keyframes slideIn {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(100%);
+    }
+}
+
 }
 </style>
 <div class="header">
@@ -242,7 +338,19 @@
 <div id="slider" class="slider">
     <div class="slider-content">
       <button id="closeSlider"><img src="close-icon.svg" class="close-icon"></button>
-      <p>This is the content of the slider.</p>
+      <div class="slo">
+      <h4 class="text-slo" style="background: transparent;">Hey Buddy!</h4>
+      <h4 class="text-slo" style="background: transparent;">Did You Find This:</h4>
+  </div>
+  <hr style="margin-top: 10px;">
+  <div class="controls">
+      <button class="controls-btn"><img src="pen-icon.svg" class="controls-img"> Update Profile</button><br>
+      <button class="controls-btn1" id="uploadPost"><img src="upload-icon.svg" class="controls-img"> Upload Post</button><br>
+      <button class="controls-btn2"><img src="tounament-icon.svg" class="controls-img"> Tournaments</button>
+      <hr style="margin-top: 10px;">
+      <button class="controls-btn3"><img src="invite-icon.svg" class="controls-img"> Invite A Friend</button><br>
+      <button class="controls-btn4"><img src="question-icon.svg" class="controls-img"> Need Help</button>
+  </div>
     </div>
 </div>
 <div class="search">
@@ -252,7 +360,7 @@
 <h3 class="user-text">User:</h3>
 <div class="search-results" id="searchResults"></div>
 <div class="social-links">
-    <h3 class="user-text">Our Social Links:</h3>
+    <h3 class="user-text" style="position: absolute; bottom: 560px;">Our Social Links:</h3>
     <div class="icons">
         <a href="#"><button class="icon-btn"><img src="youtube-icon.svg" class="icon-img"></button></a>
         <a href="#"><button class="icon-btn"><img src="facebook-icon.svg" class="icon-img"></button></a>
@@ -264,7 +372,7 @@
     <a href="#"><img src="28670.png" class="ad-img"></a>
 </div>
 <div class="updates">
-    <h3 class="user-text">Updates:</h3>
+    <h3 class="user-text" style="position: absolute; bottom: 368px;">Updates:</h3>
     <div id="div1"><img src="283107.png" class="updates-img"></div>
     <div id="div2" class="hidden"><img src="283107.png" class="updates-img"></div>
     <div id="div3" class="hidden"><img src="283107.png" class="updates-img"></div>
@@ -274,37 +382,60 @@
     <span class="dot" onclick="showDiv(3)"></span>
 </div>
 </div>
+<div id="message"></div>
 <div class="footer">
     <a href="#" class="footer-links"><button class="footer-btn clicked"><i class="fa-solid fa-house" style="overflow: hidden;"></i></button></a>
-    <a href="#" class="footer-links"><button class="footer-btn"><i class="fa-solid fa-bullhorn" style="transform: rotate(338deg); overflow: hidden;"></i></button></a>
+    <a href="post.html" class="footer-links"><button class="footer-btn"><i class="fa-solid fa-bullhorn" style="transform: rotate(338deg); overflow: hidden;"></i></button></a>
     <a href="#" class="footer-links"><button class="footer-btn"><i class="fa-solid fa-gamepad" style="overflow: hidden;"></i></button></a>
     <a href="#" class="footer-links"><button class="footer-btn"><i class="fa-solid fa-video" style="overflow: hidden;"></i></button></a>
 </div>
+<!-- Script for Whole Page-->
 <script>
-        //Color Select
-       const buttons = document.querySelectorAll('.footer-btn');
-        buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                buttons.forEach(btn => {
-                    btn.classList.remove('clicked');
-                });
-                button.classList.add('clicked');
-            });
-        });
-        //Color Over
-    function showDiv(divNumber) {
-    if (divNumber !== 1 && document.getElementById('div1').classList.contains('hidden')) {
-      document.getElementById('div1').classList.remove('hidden');
-    }
-    for (let i = 1; i <= 3; i++) {
-      document.getElementById('div' + i).classList.add('hidden');
-      document.getElementsByClassName('dot')[i - 1].classList.remove('active');
-    }
-    document.getElementById('div' + divNumber).classList.remove('hidden');
-    document.getElementsByClassName('dot')[divNumber - 1].classList.add('active');
-  }
-  // Another Part
     document.addEventListener('DOMContentLoaded', function() {
+    const updateProfileBtn = document.querySelector('.controls-btn');
+    const uploadPostBtn = document.querySelector('.controls-btn1');
+    const tournamentsBtn = document.querySelector('.controls-btn2');
+    const inviteFriendBtn = document.querySelector('.controls-btn3');
+    const needHelpBtn = document.querySelector('.controls-btn4');
+
+    const updateProfileURL = 'update_profile.html';
+    const uploadPostURL = 'upload_post.html';
+    const tournamentsURL = 'tournaments.html';
+    const inviteFriendURL = 'invite_friend.html';
+    const needHelpURL = 'need_help.html';
+
+    const inviteText = "Check out this amazing app!";
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('message');
+    document.body.appendChild(messageDiv);
+
+    updateProfileBtn.addEventListener('click', function() {
+        window.location.href = updateProfileURL;
+    });
+
+    uploadPostBtn.addEventListener('click', function() {
+        window.location.href = uploadPostURL;
+    });
+
+    tournamentsBtn.addEventListener('click', function() {
+        window.location.href = tournamentsURL;
+    });
+
+    inviteFriendBtn.addEventListener('click', function() {
+        navigator.clipboard.writeText(inviteText)
+            .then(() => {
+                showMessage("Invitation URL copied!", 'success');
+            })
+            .catch(err => {
+                console.error('Failed to copy: ', err);
+                showMessage("Failed to copy invitation text to clipboard. Please try again.", 'error');
+            });
+    });
+
+    needHelpBtn.addEventListener('click', function() {
+        window.location.href = needHelpURL;
+    });
+
     const sliderIcon = document.getElementById('sliderIcon');
     const slider = document.getElementById('slider');
     const closeSliderBtn = document.getElementById('closeSlider');
@@ -319,19 +450,16 @@
         slider.style.left = '-250px';
     });
 
-    // Initial search results data
     let initialSearchResultsData = [
         { name: 'Initial Result 1', image: 'https://via.placeholder.com/150', link: '#' },
         { name: 'Initial Result 2', image: 'https://via.placeholder.com/150', link: '#' }
     ];
 
-    // Function to shuffle search results data
     function shuffleSearchResults() {
         initialSearchResultsData = shuffleArray(initialSearchResultsData);
         renderSearchResults(initialSearchResultsData);
     }
 
-    // Function to shuffle an array
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -340,10 +468,8 @@
         return array;
     }
 
-    // Render initial search results
     shuffleSearchResults();
     
-    // Shuffle search results every 10 seconds (adjust the interval as needed)
     setInterval(shuffleSearchResults, 10000);
 
     searchBox.addEventListener('input', function() {
@@ -359,16 +485,16 @@
 
             renderSearchResults(filteredResults);
         } else {
-            renderSearchResults(initialSearchResultsData); // Display shuffled initial search results if query is empty
+            renderSearchResults(initialSearchResultsData);
         }
     });
 
     function renderSearchResults(results) {
-        searchResults.innerHTML = ''; // Clear existing search results
+        searchResults.innerHTML = '';
         if (results.length > 0) {
             results.forEach(result => {
                 const resultContainer = document.createElement('div');
-                resultContainer.classList.add('search-result-item'); // Add your class here
+                resultContainer.classList.add('search-result-item');
 
                 const resultImage = document.createElement('img');
                 resultImage.src = result.image;
@@ -390,5 +516,35 @@
             noResultsMessage.textContent = 'No results found.';
             searchResults.appendChild(noResultsMessage);
         }
-    }});
+    }
+
+    function showMessage(message, type) {
+        messageDiv.textContent = message;
+        messageDiv.classList.add(type, 'show');
+
+        setTimeout(function() {
+            messageDiv.classList.remove('show');
+        }, 3000); // 3 seconds timeout for the message to disappear
+    }
+
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', function() {
+            showDiv(index + 1);
+        });
+    });
+
+    function showDiv(divNumber) {
+        if (divNumber !== 1 && document.getElementById('div1').classList.contains('hidden')) {
+            document.getElementById('div1').classList.remove('hidden');
+        }
+        for (let i = 1; i <= 3; i++) {
+            document.getElementById('div' + i).classList.add('hidden');
+            document.getElementsByClassName('dot')[i - 1].classList.remove('active');
+        }
+        document.getElementById('div' + divNumber).classList.remove('hidden');
+        document.getElementsByClassName('dot')[divNumber - 1].classList.add('active');
+    }
+});
+
 </script>
