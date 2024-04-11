@@ -322,7 +322,7 @@
         <img src="menu-icon.svg" class="menu-icon">
     </div>
     <div class="head">
-        <h4 class="head-text">YOSHP !</h4>
+        <h4 class="head-text" onclick="reload()">YOSHP !</h4>
     </div>
     <div class="notify">
         <img src="bell-icon.svg" class="bell-icon">
@@ -384,6 +384,9 @@
 </div>
 <!-- Script for Whole Page-->
 <script>
+    function reload(){
+        location.reload()
+    }
     document.addEventListener('DOMContentLoaded', function() {
     const updateProfileBtn = document.querySelector('.controls-btn');
     const uploadPostBtn = document.querySelector('.controls-btn1');
