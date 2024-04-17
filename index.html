@@ -238,9 +238,6 @@
     display: block;
     
   }
-  @keyframes glow-text{
-    0%{ margin-left: -100px;}
-  }
   .controls-btn,.controls-btn1,.controls-btn2,.controls-btn3,.controls-btn4{
     margin-top: 10px;
     padding: 8px;
@@ -249,21 +246,6 @@
     font-size: 20px;
     border: none;
     background: transparent;
-  }
-  .controls-btn{
-    animation: glow-text 1.7s ease-in;
-  }
-  .controls-btn1{
-    animation: glow-text 2.1s ease-in;
-  }
-  .controls-btn2{
-    animation: glow-text 2.7s ease-in;
-  }
-  .controls-btn3{
-    animation: glow-text 3.2s ease-in;
-  }
-  .controls-btn4{
-    animation: glow-text 3.9s ease-in;
   }
   .controls-img{
     width: 24px;
@@ -295,8 +277,30 @@
 .message.show {
     opacity: 1;
 }
-
-/* Animation */
+.controls-btn,
+.controls-btn1,
+.controls-btn2,
+.controls-btn3,
+.controls-btn4 {
+  display: inline-block;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-items: center;
+  display: flex;
+}
+.controls-btn1{
+    margin-top: -15px;
+}
+.controls-btn2{
+    margin-top: -15px;
+}
+.controls-btn4{
+    margin-top: -15px;
+}
 @keyframes slideIn {
     from {
         transform: translateY(100%);
@@ -337,12 +341,12 @@
   </div>
   <hr style="margin-top: 10px;">
   <div class="controls">
-      <button class="controls-btn"><img src="pen-icon.svg" class="controls-img"> Update Profile</button><br>
-      <button class="controls-btn1" id="uploadPost"><img src="upload-icon.svg" class="controls-img"> Upload Post</button><br>
-      <button class="controls-btn2"><img src="tounament-icon.svg" class="controls-img"> Tournaments</button>
+      <button class="controls-btn"><img src="pen-icon.svg" class="controls-img">&nbsp; Update Profile</button><br>
+      <button class="controls-btn1" id="uploadPost"><img src="upload-icon.svg" class="controls-img">&nbsp; Upload Post</button><br>
+      <button class="controls-btn2"><img src="tounament-icon.svg" class="controls-img">&nbsp; Tournaments</button>
       <hr style="margin-top: 10px;">
-      <button class="controls-btn3"><img src="invite-icon.svg" class="controls-img"> Invite A Friend</button><br>
-      <button class="controls-btn4"><img src="question-icon.svg" class="controls-img"> Need Help</button>
+      <button class="controls-btn3"><img src="invite-icon.svg" class="controls-img">&nbsp; Invite A Friend</button><br>
+      <button class="controls-btn4"><img src="question-icon.svg" class="controls-img">&nbsp; Need Help</button>
   </div>
     </div>
 </div>
