@@ -37,16 +37,17 @@
   #username,#password{
     margin-left: 10px;
     margin-top: 10px;
+    width: 150px;
   }
   #title{
     margin-top: 10px;
     margin-left: 10px;
-    width: 349px;
+    width: 334px;
   }
   #message{
     margin-top: 10px;
     margin-left: 10px;
-    width: 354px;
+    width: 334px;
     height: 100px;
     padding: 6px;
     resize: none;
@@ -73,13 +74,25 @@
   .header{
     display: flex;
     align-items: center;
-    justify-content: center;
     margin-top: 10px;
+  }
+  .icon-box{
+    display: flex;
+    justify-content: center;
+    margin-top: -38px;
+    align-items: center;
+
+  }
+  .back-icon{
+    width: 34px;
   }
 </style>
 </head>
 <body>
-    <div class="header" onclick="reload()">
+    <div class="header">
+    <a href="index.html"><img src="back-icon.webp" class="back-icon"></a>
+  </div>
+    <div class="icon-box" onclick="reload()">
     <img src="icon.png" class="icon">
     <h3>Yopsh !</h3>
   </div>
